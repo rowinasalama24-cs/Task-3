@@ -1,0 +1,75 @@
+// First synchronous log
+console.log("Start");
+
+// Asynchronous log
+setTimeout(() => {
+    console.log("Inside setTimeout");
+}, 1000);
+
+// Last synchronous log
+console.log("End");
+
+/*
+Expected Output:
+Start
+End
+Inside setTimeout
+*/
+---------
+// Runs immediately
+console.log("First");
+
+// Added to the Web API then Event Loop
+setTimeout(() => {
+    console.log("Second");
+}, 0);
+
+// Runs immediately
+console.log("Third");
+
+/*
+Execution Order:
+1. First
+2. Third
+3. Second
+*/
+--------
+// Synchronous execution
+console.log("Line 1");
+
+// Asynchronous task
+setTimeout(() => {
+    console.log("Line 3");
+}, 1000);
+
+// Continues without waiting
+console.log("Line 2");
+
+/*
+Output:
+Line 1
+Line 2
+Line 3
+*/
+---------
+// First synchronous statement
+console.log("Program Started");
+
+// Async task
+setTimeout(() => {
+    console.log("Async Task");
+}, 0);
+
+// Another synchronous statement
+console.log("Program Finished");
+
+/*
+Output:
+Program Started
+Program Finished
+Async Task
+
+Explanation:
+The callback waits until the Call Stack becomes empty,
+even when the delay is 0 milliseconds.
+*/
