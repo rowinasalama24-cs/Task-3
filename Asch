@@ -1,0 +1,40 @@
+// Print immediately
+console.log("Hello");
+
+// Print after 2 seconds
+setTimeout(() => {
+    console.log("World");
+}, 2000);
+----------
+// Loop from 1 to 5
+for (let i = 1; i <= 5; i++) {
+
+    // Print each number after i seconds
+    setTimeout(() => {
+        console.log(i);
+    }, i * 1000);
+
+}
+---------
+// Display loading message immediately
+console.log("Loading...");
+
+// Display Done after 3 seconds
+setTimeout(() => {
+    console.log("Done");
+}, 3000);
+--------
+// Function that sends a delayed message
+function sendMessage(message, delay) {
+
+    // Wait for the specified delay
+    setTimeout(() => {
+        console.log(message);
+    }, delay);
+
+}
+
+// Send messages with different delays
+sendMessage("Message 1", 1000);
+sendMessage("Message 2", 2000);
+sendMessage("Message 3", 3000);
